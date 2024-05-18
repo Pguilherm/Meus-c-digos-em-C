@@ -1,0 +1,110 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+#include <string.h>
+
+struct vacina 
+
+{
+  int codigo;
+  char nome[50];
+  char cpf[50];
+  char vacinas[50];
+  char data[50];
+  char numerolote[50];
+};
+
+int main(void) 
+{
+  setlocale(LC_ALL,"Portuguese");
+  struct vacina lista[4];
+  int i, op,j,achou;
+  char busca[20];
+
+  op = 0;
+  while (op != 4)
+    {
+     printf("1 - Cadastrar Vacina \n");
+     printf("2 - Listar Aplicações \n");
+     printf("3 - Consultar por CPF \n");
+     printf("4 - Sair \n");
+     scanf("%d", &op);
+     fflush(stdin);
+
+      if (op == 1)
+	  {
+          system("cls");
+		  lista[i].codigo = i;
+          fflush(stdin);
+          printf("Digite o nome ");
+          gets (&lista[i].nome);
+          fflush(stdin);
+          printf("Digite o CPF");
+          gets(&lista[i].cpf);
+          fflush(stdin);
+          printf("Digite a vacina ");
+          gets(&lista[i].vacinas);
+          fflush(stdin);
+          printf("Digite a Data ");
+          gets(&lista[i].data);
+          fflush(stdin);
+          printf("Digite o lote ");
+          scanf("%s", &lista[i].numerolote);
+          fflush(stdin);
+          i++;
+         
+      
+      }
+      else 
+	  {
+     	if(op == 2)
+		 {
+     		system("cls");
+     		for(j= 0; j < i; j ++)
+			 {
+     			printf("\nCódigo: %d \n", lista[j].codigo);
+     			printf("Nome: %s \n", lista[j].nome);
+     			printf("CPF: %s \n", lista[j].cpf);
+     			printf("Vacina: %s \n", lista[j].vacinas);
+     			printf("Data: %s \n", lista[j].data);
+     			printf("Lote: %s \n", lista[j].numerolote);
+     			printf("\n================================== \n");
+			 }
+     		
+		 }
+		 else
+		 {	
+	  	    if(op == 3)
+		    {
+		       system("cls");
+		       printf("Digite o CPF que deseja: ");	
+		       gets(&busca);
+		       fflush(stdin);
+		       achou=0;
+		       for(j=0; j<i; j++)
+			   {
+		   	        if(strcmp(busca, lista[j].cpf)==0)
+					{
+					   achou = 1;
+		   		       printf("\nCódigo: %d \n", lista[j].codigo);
+     			       printf("Nome: %s \n", lista[j].nome);
+     			       printf("CPF: %s \n", lista[j].cpf);
+     			       printf("Vacina: %s \n", lista[j].vacinas);
+     			       printf("Data: %s \n", lista[j].data);
+     			       printf("Lote: %s \n", lista[j].numerolote);
+     			       printf("\n================================== \n");
+			       }
+			      
+			       }
+		     }
+		     	if(achou == 0){
+					   
+			   	       printf(" \n Paciente não encontrado. \n");
+			   	   }    
+		   }
+	    }
+	  
+   }while (op = 4) 
+   
+  return 0;
+}
